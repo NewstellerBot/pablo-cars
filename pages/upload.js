@@ -141,7 +141,7 @@ function Upload() {
               <textarea
                 id="description"
                 type="text"
-                className="h-24 w-full border border-gray-400 rounded resize-none font-normal text-sm p-1"
+                className="h-24 w-full border border-gray-400 rounded resize-none font-normal text-md p-1"
                 {...register('description', { required: true })}
               />
             </Label>
