@@ -1,20 +1,20 @@
 import Head from 'next/head'
-import Image from 'next/image'
 
-import prisma from '../lib/prisma'
+import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 import Navbar from '../components/Navbar'
 import Car from '../components/Car'
 import Footer from '../components/Footer'
+import CarPlaceholder from '../components/CarPlaceholder'
 
-import { useSession } from 'next-auth/react'
-import Link from 'next/link'
+import useCars from '../lib/useCars'
 
-export default function Home({ data, base64 }) {
-  const cars = JSON.parse(data)
-  const { data: session, status } = useSession()
-
+export default function Home() {
+  const { data: session } = useSession()
   const admin = session?.user?.role === 'admin'
+
+  const { cars, isLoading, isError } = useCars()
 
   return (
     <>
@@ -36,26 +36,21 @@ export default function Home({ data, base64 }) {
         <section id="cars">
           <h1 className="text-4xl font-semibold mb-5">Cars</h1>
           <div className="grid md:grid-cols-2 gap-5">
-            {cars.map((car) => {
-              return <Car key={car.id} props={car} />
-            })}
+            {isLoading ? (
+              Array(4).map((i) => {
+                return <CarPlaceholder key={i} />
+              })
+            ) : isError ? (
+              <h1>Error occured while loading cars!</h1>
+            ) : (
+              cars.map((car) => {
+                return <Car key={car.id} props={car} />
+              })
+            )}
           </div>
         </section>
       </main>
       <Footer />
     </>
   )
-}
-
-export async function getStaticProps() {
-  try {
-    const data = await prisma.cars.findMany()
-    return {
-      props: {
-        data: JSON.stringify(data),
-      },
-    }
-  } catch (error) {
-    console.log(error)
-  }
 }
