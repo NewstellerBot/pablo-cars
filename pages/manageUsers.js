@@ -44,7 +44,7 @@ export default function ManageUsers({ users }) {
 
 import prisma from '../lib/prisma'
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const users = await prisma.user.findMany()
   return {
     props: {
