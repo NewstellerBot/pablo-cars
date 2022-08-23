@@ -29,7 +29,7 @@ export default function Contact() {
         <div className="relative" style={{ ...size }}>
           <Image
             className="rounded"
-            src="/pawel.jpeg"
+            src="/pawel.webp"
             alt=""
             layout="fill"
             objectFit="cover"
