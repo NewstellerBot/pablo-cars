@@ -6,9 +6,9 @@ import useUsers from '../lib/useUsers'
 export default function ManageUsers() {
   const { data: session, status } = useSession({})
   const admin = session?.user?.role === 'admin'
-  const { data: users, isLoading, isError } = useUsers()
+  const { users, isLoading, isError } = useUsers()
 
-  if (admin && users)
+  if (admin)
     return (
       <>
         <div className="w-screen h-screen flex items-center justify-center flex-col p-5">
