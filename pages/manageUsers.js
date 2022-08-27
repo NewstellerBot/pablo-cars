@@ -17,23 +17,19 @@ export default function ManageUsers() {
             {users.map((user) => {
               const { email, id } = user
               return (
-                <>
-                  <button
-                    className="p-2 bg-gray-50 hover:bg-gray-100 rounded"
-                    onClick={async () => {
-                      await toast.promise(
-                        fetch(`/api/auth/add-admin?id=${id}`),
-                        {
-                          loading: 'Adding admin...',
-                          success: 'Admin added!',
-                          error: 'Error adding admin!',
-                        }
-                      )
-                    }}
-                  >
-                    <p key={email}>{email}</p>
-                  </button>
-                </>
+                <button
+                  className="p-2 bg-gray-50 hover:bg-gray-100 rounded"
+                  key={id}
+                  onClick={async () => {
+                    await toast.promise(fetch(`/api/auth/add-admin?id=${id}`), {
+                      loading: 'Adding admin...',
+                      success: 'Admin added!',
+                      error: 'Error adding admin!',
+                    })
+                  }}
+                >
+                  <p>{email}</p>
+                </button>
               )
             })}
           </div>
