@@ -1,12 +1,14 @@
 import { useSession } from 'next-auth/react'
 import toast, { Toaster } from 'react-hot-toast'
 import Authenticate from '../components/Authenticate'
+import useUsers from '../lib/useUsers'
 
-export default function ManageUsers({ users }) {
+export default function ManageUsers() {
   const { data: session, status } = useSession({})
   const admin = session?.user?.role === 'admin'
+  const { data: users, isLoading, isError } = useUsers()
 
-  if (admin)
+  if (admin && users)
     return (
       <>
         <div className="w-screen h-screen flex items-center justify-center flex-col p-5">
@@ -39,16 +41,7 @@ export default function ManageUsers({ users }) {
         <Toaster />
       </>
     )
+  if (isLoading) return <p>Loading...</p>
+  if (isError) return <p>Error occured while loading users!</p>
   else return <Authenticate />
-}
-
-import prisma from '../lib/prisma'
-
-export async function getStaticProps() {
-  const users = await prisma.user.findMany()
-  return {
-    props: {
-      users,
-    },
-  }
 }
