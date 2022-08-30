@@ -1,10 +1,12 @@
 import toast, { Toaster } from 'react-hot-toast'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { useForm } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 
 import Authenticate from '../components/Authenticate'
@@ -23,7 +25,7 @@ function Upload() {
   const { handleSubmit, register } = useForm()
   const router = useRouter()
 
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const admin = session?.user?.role === 'admin'
 
   const onDrop = useCallback(
@@ -35,7 +37,7 @@ function Upload() {
           const uuid = uuidv4()
           _uuids.push(uuid)
           const res = await axios.get('/api/upload-image', {
-            params: { file: uuid },
+            params: { file: uuid, type: file.type },
           })
           const { url } = res.data
           toast.promise(axios.put(url, file), {
@@ -163,9 +165,23 @@ function Upload() {
             </div>
 
             <h1 className="font-semibold text-lg">Uploaded files</h1>
-            <div>
-              {files.map((file) => {
-                return <p key={file.name}>{file.name}</p>
+            <div className="flex flex-col gap-2">
+              {files.map((file, i) => {
+                return (
+                  <div key={uuids[i]} className="flex">
+                    <p className="w-full">{file.name}</p>
+                    <button
+                      type="button"
+                      className="grid place-items-center text-md p-2"
+                      onClick={() => {
+                        setUuids(uuids.filter((uuid) => uuid !== uuids[i]))
+                        setFiles(files.filter((_file) => _file !== file))
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faXmark} width={15} height={15} />
+                    </button>
+                  </div>
+                )
               })}
             </div>
             <button
