@@ -33,7 +33,7 @@ export default function Car(props) {
               type="button"
               className="bg-blue-500 text-white rounded p-2 mt-2"
             >
-              See more
+              Zobacz Więcej
             </button>
           </Link>
           {admin && (
@@ -48,7 +48,7 @@ export default function Car(props) {
                 router.reload(window.location.pathname)
               }}
             >
-              Delete
+              Usuń Auto
             </button>
           )}
         </div>

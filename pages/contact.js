@@ -37,7 +37,7 @@ export default function Contact() {
         </div>
 
         <h1 className="text-3xl font-bold">Paweł Nowak</h1>
-        <h2 className="text-xl ">Head of Sales</h2>
+        <h2 className="text-xl ">Główny Sprzedawca</h2>
         <a href="mailto: pawel@pablocars.pl">
           <p>pn@mastal.com</p>
         </a>

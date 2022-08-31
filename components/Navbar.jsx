@@ -35,7 +35,7 @@ function Navbar() {
             <Link href="/">
               <a>
                 <li className="py-1 px-2 hover:bg-white hover:bg-opacity-30 rounded">
-                  Cars
+                  Samochody
                 </li>
               </a>
             </Link>
@@ -45,7 +45,7 @@ function Navbar() {
             <Link href="/contact">
               <a>
                 <li className="py-1 px-2 hover:bg-white hover:bg-opacity-30 rounded">
-                  Contact
+                  Kontakt
                 </li>
               </a>
             </Link>
@@ -57,7 +57,7 @@ function Navbar() {
             <Link href="/">
               <a>
                 <li className="p-1 pl-2 hover:bg-white hover:bg-opacity-30 rounded">
-                  Cars
+                  Samochody
                 </li>
               </a>
             </Link>
@@ -67,7 +67,7 @@ function Navbar() {
             <Link href="/contact">
               <a>
                 <li className="p-1 pl-2 hover:bg-white hover:bg-opacity-30 rounded">
-                  Contact
+                  Kontakt
                 </li>
               </a>
             </Link>

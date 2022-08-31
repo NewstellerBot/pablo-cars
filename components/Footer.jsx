@@ -8,7 +8,7 @@ function Footer() {
           <Link href="/">
             <a>
               <li className="hover:bg-white hover:bg-opacity-10 p-2 rounded">
-                Cars
+                Samochody
               </li>
             </a>
           </Link>
@@ -18,7 +18,7 @@ function Footer() {
           <Link href="/contact">
             <a>
               <li className="hover:bg-white hover:bg-opacity-10 p-2 rounded">
-                Contact
+                Kontakt
               </li>
             </a>
           </Link>

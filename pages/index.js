@@ -34,7 +34,7 @@ export default function Home() {
           </>
         ) : null}
         <section id="cars">
-          <h1 className="text-4xl font-semibold mb-5">Cars</h1>
+          <h1 className="text-4xl font-semibold mb-5">Samochody</h1>
           <div className="grid md:grid-cols-2 gap-5">
             {isLoading ? (
               Array(4).map((i) => {
