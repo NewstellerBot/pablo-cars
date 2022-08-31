@@ -85,7 +85,7 @@ function Upload() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <Label>
-              <p>Title</p>
+              <p>Tytuł</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 id="title"
@@ -94,7 +94,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Maker</p>
+              <p>Marka</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 id="maker"
@@ -103,7 +103,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Price</p>
+              <p>Cena</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 type="number"
@@ -112,7 +112,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Production Year</p>
+              <p>Rok Produkcji</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 type="number"
@@ -121,7 +121,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Mileage</p>
+              <p>Przebieg</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 type="number"
@@ -130,7 +130,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Drive</p>
+              <p>Typ Paliwa (benzyna/diesel/gaz/hybryda)</p>
               <input
                 className="border border-gray-400 rounded w-full text-md font-normal p-1"
                 type="text"
@@ -139,7 +139,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Description</p>
+              <p>Opis</p>
               <textarea
                 id="description"
                 type="text"
@@ -148,7 +148,7 @@ function Upload() {
               />
             </Label>
             <Label>
-              <p>Upload photos</p>
+              <p>Dodaj Zdjecia</p>
             </Label>
             <div
               {...getRootProps()}
@@ -156,10 +156,10 @@ function Upload() {
             >
               <input {...getInputProps()} />
               {isDragActive ? (
-                <p className="text-sm font-normal">Drop the files here ...</p>
+                <p className="text-sm font-normal">Upuść tutaj pliki</p>
               ) : (
                 <p className="text-sm font-normal">
-                  Drag n drop some files here, or click to select files
+                  Kliknij lub upuść pliki tutaj
                 </p>
               )}
             </div>
@@ -188,7 +188,7 @@ function Upload() {
               type="submit"
               className="block text-white bg-blue-500 p-3 font-semibold rounded w-full"
             >
-              Upload
+              Dodaj
             </button>
           </form>
         </main>

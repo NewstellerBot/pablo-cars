@@ -15,7 +15,7 @@ export default function Login() {
             />
           </label>
           <label>
-            <p className="mb-0.5">Password</p>
+            <p className="mb-0.5">Hasło</p>
             <input
               type="password"
               placeholder="Password"
@@ -33,7 +33,7 @@ export default function Login() {
               type="button"
               className="p-2 border-blue-500 border rounded text-blue-600 hover:text-white hover:bg-blue-500 transition"
             >
-              Register
+              Rejestracja
             </button>
           </Link>
         </form>

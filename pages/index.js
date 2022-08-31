@@ -28,7 +28,7 @@ export default function Home() {
           <>
             <Link href="/upload">
               <button className="text-white p-3 rounded-lg font-semibold w-full my-3 bg-blue-500">
-                Add Car
+                Dodaj Samochód
               </button>
             </Link>
           </>
@@ -41,7 +41,7 @@ export default function Home() {
                 return <CarPlaceholder key={i} />
               })
             ) : isError ? (
-              <h1>Error occured while loading cars!</h1>
+              <h1>Error nastąpił podczas ładowania!</h1>
             ) : (
               cars.map((car) => {
                 return <Car key={car.id} props={car} />

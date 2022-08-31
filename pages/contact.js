@@ -39,7 +39,7 @@ export default function Contact() {
         <h1 className="text-3xl font-bold">Paweł Nowak</h1>
         <h2 className="text-xl ">Head of Sales</h2>
         <a href="mailto: pawel@pablocars.pl">
-          <p>pawel@pablocars.pl</p>
+          <p>pn@mastal.com</p>
         </a>
         <p>+48 695 084 489</p>
       </main>
